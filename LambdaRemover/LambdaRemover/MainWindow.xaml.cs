@@ -20,8 +20,7 @@ namespace LambdaRemover
     /// </summary>
     public partial class MainWindow : Window
     {
-        RefactorEngine refactorEngine = new RefactorEngine();
-
+        //RefactorEngine refactorEngine = new RefactorEngine();
 
         public MainWindow()
         {
@@ -30,9 +29,8 @@ namespace LambdaRemover
 
         private void RefactorButton_Click(object sender, RoutedEventArgs e)
         {
-            string outputCode = refactorEngine.removeLambdasFromCode(InputTextBox.Text);
-            OutputTextBox.Text = outputCode;
+            //string outputCode = refactorEngine.removeLambdasFromCode(InputTextBox.Text);
+            //OutputTextBox.Text = outputCode;
         }
-
     }
 }

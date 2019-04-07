@@ -67,9 +67,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CsharpSubsetLexer.cs" />
-    <Compile Include="CsharpSubsetListener.cs" />
-    <Compile Include="CsharpSubsetParser.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
