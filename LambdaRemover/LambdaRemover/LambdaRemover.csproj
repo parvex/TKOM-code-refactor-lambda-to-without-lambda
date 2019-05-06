@@ -58,7 +58,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CsharpSubsetBaseListener.cs" />
+    <Compile Include="CsharpSubsetLexer.cs" />
+    <Compile Include="CsharpSubsetListener.cs" />
+    <Compile Include="CsharpSubsetParser.cs" />
+    <Compile Include="ErrorStrategy.cs" />
+    <Compile Include="ParserErrorListener.cs" />
     <Compile Include="RefactorEngine.cs" />
+    <Compile Include="LexerErrorListener.cs" />
+    <Compile Include="ReportingParser.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,10 +98,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Antlr4 Include="CsharpSubset.g4">
-      <Generator>MSBuild:Compile</Generator>
-      <CustomToolNamespace>LambdaRemover</CustomToolNamespace>
-    </Antlr4>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
