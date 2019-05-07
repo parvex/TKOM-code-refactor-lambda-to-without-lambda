@@ -125,6 +125,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitProgram(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitProgram(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -191,6 +196,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitUsingStmnt(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitUsingStmnt(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -239,6 +249,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitClassInitialization(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassInitialization(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -307,6 +322,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitClassDefinition(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitClassDefinition(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -374,6 +394,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitPropertyDefinition(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitPropertyDefinition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -454,6 +479,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitMethodDefinition(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMethodDefinition(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -590,6 +620,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitStmnt(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitStmnt(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -673,6 +708,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitVarDeclaration(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitVarDeclaration(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -732,6 +772,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitAssignStmnt(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitAssignStmnt(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -788,6 +833,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitReturnStmnt(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReturnStmnt(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -835,6 +885,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitExpression(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -900,6 +955,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitMathExpression(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMathExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1058,6 +1118,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitMethodCallStmnt(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitMethodCallStmnt(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1121,6 +1186,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitLambdaExpression(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitLambdaExpression(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1216,6 +1286,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitParameterList(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParameterList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1282,6 +1357,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitTypedArgList(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitTypedArgList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1342,6 +1422,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitArgList(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitArgList(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1400,6 +1485,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitParameter(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitParameter(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1460,6 +1550,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitType(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitType(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1514,6 +1609,11 @@ public partial class CsharpSubsetParser : Parser {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitReference(this);
 		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitReference(this);
+			else return visitor.VisitChildren(this);
+		}
 	}
 
 	[RuleVersion(0)]
@@ -1563,6 +1663,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitDelegateType(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitDelegateType(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 
@@ -1635,6 +1740,11 @@ public partial class CsharpSubsetParser : Parser {
 		public override void ExitRule(IParseTreeListener listener) {
 			ICsharpSubsetListener typedListener = listener as ICsharpSubsetListener;
 			if (typedListener != null) typedListener.ExitCompileUnit(this);
+		}
+		public override TResult Accept<TResult>(IParseTreeVisitor<TResult> visitor) {
+			ICsharpSubsetVisitor<TResult> typedVisitor = visitor as ICsharpSubsetVisitor<TResult>;
+			if (typedVisitor != null) return typedVisitor.VisitCompileUnit(this);
+			else return visitor.VisitChildren(this);
 		}
 	}
 

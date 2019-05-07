@@ -8,7 +8,7 @@ program : (usingStmnt* classDefinition*);
 usingStmnt : 'using' NAME ';';
 classInitialization : reference NAME '=' 'new' NAME '(' argList? ')' ';';
 classDefinition : 'class' NAME '{'  (propertyDefinition | methodDefinition)* '}';
- 
+  
 propertyDefinition : ('public' | 'private')? 'static'? varDeclaration; 
 methodDefinition : ('public' | 'private')? 'static'? (type | 'void') NAME '(' parameterList? ')' '{' stmnt* returnStmnt? '}'; 
 
@@ -24,7 +24,8 @@ mathExpression:	NUMBER | reference |'(' mathExpression ')' |<assoc=right> mathEx
 
 methodCallStmnt: reference '(' argList? ')';
 
-lambdaExpression : '(' (argList | typedArgList)? ')' '=>' '{' (stmnt | mathExpression | returnStmnt)? '}';
+lambdaBody:  (stmnt | mathExpression)* returnStmnt?;
+lambdaExpression : '(' (argList | typedArgList)? ')' '=>' '{' lambdaBody '}';
  
 parameterList : type reference (',' type reference)*;
 typedArgList: type reference (',' type reference)*;
