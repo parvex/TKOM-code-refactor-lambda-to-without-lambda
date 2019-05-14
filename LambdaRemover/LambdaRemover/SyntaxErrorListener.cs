@@ -7,7 +7,7 @@ using LambdaRemover;
 
 public class SyntaxErrorListener : BaseErrorListener
 {
-    public List<SyntaxError> SyntaxErrors = new List<SyntaxError>();
+    public readonly List<SyntaxError> SyntaxErrors = new List<SyntaxError>() {};
 
     public override void SyntaxError(TextWriter output, IRecognizer recognizer, IToken offendingSymbol, 
         int line, int charPositionInLine, string msg, RecognitionException e)
