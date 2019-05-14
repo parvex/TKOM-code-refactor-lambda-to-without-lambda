@@ -39,5 +39,13 @@ namespace LambdaRemover
         {
 
         }
+
+        private void ListBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                Clipboard.SetText(ListBox.SelectedItem.ToString());
+            }
+        }
     }
 }
