@@ -3,7 +3,7 @@ grammar CsharpSubset;
 /*
  * Parser Rules
  */
-program : (usingStmnt* classDefinition*); 
+program : (usingStmnt* classDefinition* EOF); 
 
 usingStmnt : 'using' NAME ';';
 classInitialization : reference NAME '=' 'new' NAME '(' argList? ')' ';';
@@ -53,3 +53,5 @@ TEXT: '"' .*? '"';
 COMMENT: '//' .*? '\n';
 NUMBER: '-'? DIGIT+;
 REFERENCE: NAME ('.' NAME)+;
+
+ErrorChar : . ;

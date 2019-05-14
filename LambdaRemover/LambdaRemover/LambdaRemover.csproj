@@ -58,18 +58,20 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CsharpSubsetBaseListener.cs" />
-    <Compile Include="CsharpSubsetBaseVisitor.cs" />
-    <Compile Include="CsharpSubsetLexer.cs" />
-    <Compile Include="CsharpSubsetListener.cs" />
-    <Compile Include="CsharpSubsetParser.cs" />
-    <Compile Include="CsharpSubsetVisitor.cs" />
+    <Compile Include="AntlrGenerated\CsharpSubsetBaseListener.cs" />
+    <Compile Include="AntlrGenerated\CsharpSubsetBaseVisitor.cs" />
+    <Compile Include="AntlrGenerated\CsharpSubsetLexer.cs" />
+    <Compile Include="AntlrGenerated\CsharpSubsetListener.cs" />
+    <Compile Include="AntlrGenerated\CsharpSubsetParser.cs" />
+    <Compile Include="AntlrGenerated\CsharpSubsetVisitor.cs" />
     <Compile Include="ErrorStrategy.cs" />
     <Compile Include="LambdaRemoveVisitor.cs" />
     <Compile Include="ParserErrorListener.cs" />
     <Compile Include="RefactorEngine.cs" />
     <Compile Include="LexerErrorListener.cs" />
     <Compile Include="ReportingParser.cs" />
+    <Compile Include="SyntaxError.cs" />
+    <Compile Include="SyntaxErrorListener.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

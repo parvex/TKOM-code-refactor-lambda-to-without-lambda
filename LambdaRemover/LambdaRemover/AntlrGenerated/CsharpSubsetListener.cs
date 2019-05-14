@@ -161,6 +161,16 @@ public interface ICsharpSubsetListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitMethodCallStmnt([NotNull] CsharpSubsetParser.MethodCallStmntContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaExpression"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>

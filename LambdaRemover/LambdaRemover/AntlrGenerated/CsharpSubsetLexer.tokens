@@ -30,6 +30,7 @@ TEXT=29
 COMMENT=30
 NUMBER=31
 REFERENCE=32
+ErrorChar=33
 'using'=1
 ';'=2
 '='=3

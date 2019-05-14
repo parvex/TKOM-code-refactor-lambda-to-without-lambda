@@ -191,6 +191,18 @@ public partial class CsharpSubsetBaseListener : ICsharpSubsetListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitMethodCallStmnt([NotNull] CsharpSubsetParser.MethodCallStmntContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaExpression"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
