@@ -9,9 +9,9 @@
     <Grid>
 
         <TextBox x:Name="OutputTextBox" HorizontalAlignment="Left" Height="263" Margin="395,31,0,0" TextWrapping="NoWrap" Text="TextBox" Width="387" VerticalAlignment="Top" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
-        <TextBlock x:Name="LogTextBlock" HorizontalAlignment="Left" Margin="10,325,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="84" Width="772"><Run Text="TextBlock"/></TextBlock>
         <TextBox x:Name="InputTextBox" HorizontalAlignment="Left" Height="263" Margin="10,31,0,0" TextWrapping="NoWrap" Text="TextBox" Width="380" VerticalAlignment="Top"  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
         <Button Name="RefactorButton" Content="Button" HorizontalAlignment="Left" Margin="355,0,0,0" VerticalAlignment="Top" Width="75" Click="RefactorButton_Click"/>
+        <ListBox Name="ListBox" HorizontalAlignment="Left" Height="110" Margin="10,299,0,0" VerticalAlignment="Top" Width="772"/>
 
     </Grid>
 </Window>

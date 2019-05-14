@@ -17,6 +17,11 @@ namespace LambdaRemover
         public string Message { get; }
         public RecognitionException Exception { get; }
 
+        public string AsString()
+        {
+            return "Line: " + Line + ":" + CharPositionInLine + " Message: " + Message;
+        }
+
         public SyntaxError(TextWriter output, IRecognizer recognizer, IToken offendingSymbol, int line, int charPositionInLine, string message, RecognitionException exception)
         {
             Output = output;
@@ -28,5 +33,4 @@ namespace LambdaRemover
             Exception = exception;
         }
     }
-
 }

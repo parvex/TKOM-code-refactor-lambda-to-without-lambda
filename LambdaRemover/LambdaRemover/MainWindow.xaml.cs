@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +21,23 @@ namespace LambdaRemover
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<string> LogOutput = new ObservableCollection<string>();
+
         public MainWindow()
         {
             InitializeComponent();
+            ListBox.ItemsSource = LogOutput;
         }
 
         private void RefactorButton_Click(object sender, RoutedEventArgs e)
         {
-            var refactorEngine = new RefactorEngine(InputTextBox.Text, LogTextBlock);
+            var refactorEngine = new RefactorEngine(InputTextBox.Text, LogOutput);
             OutputTextBox.Text = "lol";
+        }
+
+        private void ListBox_SelectionChanged(SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
