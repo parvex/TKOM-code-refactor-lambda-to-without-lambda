@@ -18,9 +18,9 @@
             <RowDefinition Height = "5*" />
         </Grid.RowDefinitions>
 
-        <TextBox x:Name="InputTextBox" Grid.Row="0" Grid.Column="0"  TextWrapping="NoWrap" Text="Input your code..."  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" TextChanged="InputTextBox_TextChanged" FontFamily="Consolas" />
-        <TextBox x:Name="OutputTextBox" Grid.Row="0" Grid.Column="1"  TextWrapping="NoWrap" Text="Refactor output will be there!" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontFamily="Consolas"/>
-        <Button  Name="RefactorButton" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Content="Refactor!"   Click="RefactorButton_Click"/>
+        <TextBox x:Name="InputTextBox" Grid.Row="0" Grid.Column="0"  TextWrapping="NoWrap" Text="Input your code..."  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" TextChanged="InputTextBox_TextChanged" FontFamily="Consolas" Background="#FF1F1F1F" Foreground="White" />
+        <TextBox x:Name="OutputTextBox" Grid.Row="0" Grid.Column="1"  TextWrapping="NoWrap" Text="Refactor output will be there!" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" FontFamily="Consolas" Background="#FF1F1F1F" Foreground="White"/>
+        <Button  Name="RefactorButton" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Content="Remove lambdas!"   Click="RefactorButton_Click" Foreground="White" Background="#FF19336C" FontFamily="Consolas"/>
         <ListBox Name="ListBox"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" KeyDown="ListBox_KeyDown" Background="#FF323232" FontFamily="Consolas" Foreground="#FF1FB407" />
     </Grid>
 </Window>
