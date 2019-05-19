@@ -12,8 +12,11 @@ namespace LambdaRemover
             _inputStream = inputStream;
         }
 
-        public List<(int methodDefIndex, Interval lambdaInterval, string argList, string body)> DataToRefactorList
-            { get; set; } = new List<(int methodDefIndex, Interval lambdaInterval, string argList, string body)>();
+        /// <summary>
+        /// This dictionary holds list of lists of data required to refactor one class, key is the index of class definition
+        /// </summary>
+        public Dictionary<int, List<RefactorData>> DataToRefactorDictionary
+            { get; set; } = new Dictionary<int, List<RefactorData>>();
 
         AntlrInputStream _inputStream;
 
@@ -29,9 +32,15 @@ namespace LambdaRemover
             var argList = GetArgList(lambdaExpressionContext);
 
             var methodDefContext = FindMethodDefinitionContext(context);
-
             int methodDefIndex = methodDefContext.Start.StartIndex;
-            DataToRefactorList.Add((methodDefIndex, lambdaExpressionInterval, argList, body));
+            RefactorData data = new RefactorData(argList, body, lambdaExpressionInterval);
+
+            if (!DataToRefactorDictionary.ContainsKey(methodDefIndex))
+            {
+                DataToRefactorDictionary[methodDefIndex] = new List<RefactorData>();
+            }
+            DataToRefactorDictionary[methodDefIndex].Add(data);
+
 
             return base.VisitLambdaBody(context);
         }

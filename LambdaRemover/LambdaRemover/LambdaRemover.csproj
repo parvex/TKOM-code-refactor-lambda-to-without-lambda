@@ -65,6 +65,7 @@
     <Compile Include="AntlrGenerated\CsharpSubsetParser.cs" />
     <Compile Include="AntlrGenerated\CsharpSubsetVisitor.cs" />
     <Compile Include="LambdaRemoveVisitor.cs" />
+    <Compile Include="RefactorData.cs" />
     <Compile Include="RefactorEngine.cs" />
     <Compile Include="SyntaxError.cs" />
     <Compile Include="SyntaxErrorListener.cs" />

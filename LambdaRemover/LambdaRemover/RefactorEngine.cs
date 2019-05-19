@@ -35,8 +35,7 @@ namespace LambdaRemover
 
         private static string RefactorCode(string codeString, LambdaRemoveVisitor visitor)
         {
-            //var lol = visitor.DataToRefactorList.GroupBy(x => x.methodDefIndex);
-            //lol.
+            //visitor.DataToRefactorDictionary.
 
             return codeString;
         }
