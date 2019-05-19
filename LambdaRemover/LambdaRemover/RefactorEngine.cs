@@ -27,6 +27,7 @@ namespace LambdaRemover
 
                 return;
             }
+
             LambdaRemoveVisitor visitor = new LambdaRemoveVisitor(inputStream);
             visitor.Visit(tree);
         }

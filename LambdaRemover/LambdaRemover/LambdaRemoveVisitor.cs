@@ -69,7 +69,6 @@ namespace LambdaRemover
         {
             return _inputStream.GetText(new Interval(context.Start.StartIndex, context.Stop.StopIndex));
         }
-        
 
         private CsharpSubsetParser.MethodDefinitionContext FindMethodDefinitionContext(RuleContext context)
         {

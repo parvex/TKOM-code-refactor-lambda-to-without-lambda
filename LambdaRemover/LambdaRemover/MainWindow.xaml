@@ -5,18 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:LambdaRemover"
         mc:Ignorable="d"
-        Title="Lambda Remover" Height="450" Width="800">
+        Title="Lambda Remover" Width="900"  Height="600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="120*"/>
-            <ColumnDefinition Width="257*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="OutputTextBox" HorizontalAlignment="Left" Margin="117,10,0,146" TextWrapping="NoWrap" Text="Refactor output will be there!" Width="387" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.Column="2"/>
-        <TextBox x:Name="InputTextBox" HorizontalAlignment="Left" Height="263" Margin="10,10,0,0" TextWrapping="NoWrap" Text="Input your code..." Width="380" VerticalAlignment="Top"  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" Grid.ColumnSpan="3"/>
-        <Button Name="RefactorButton" Content="Refactor!" HorizontalAlignment="Left" Margin="76,279,0,0" VerticalAlignment="Top" Width="76" Click="RefactorButton_Click" Grid.Column="2"/>
-        <ListBox Name="ListBox" HorizontalAlignment="Left" Height="110" Margin="10,299,0,0" VerticalAlignment="Top" Width="772" KeyDown="ListBox_KeyDown" Grid.ColumnSpan="3"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "12*" />
+            <RowDefinition Height = "*" />
+            <RowDefinition Height = "5*" />
+        </Grid.RowDefinitions>
 
+        <TextBox x:Name="InputTextBox" Grid.Row="0" Grid.Column="0"  TextWrapping="NoWrap" Text="Input your code..."  AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto" />
+        <TextBox x:Name="OutputTextBox" Grid.Row="0" Grid.Column="1"  TextWrapping="NoWrap" Text="Refactor output will be there!" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"/>
+        <Button  Name="RefactorButton" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"  Content="Refactor!"   Click="RefactorButton_Click"/>
+        <ListBox Name="ListBox"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" KeyDown="ListBox_KeyDown" />
     </Grid>
 </Window>
