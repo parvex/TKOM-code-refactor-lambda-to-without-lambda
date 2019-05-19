@@ -47,5 +47,10 @@ namespace LambdaRemover
                 Clipboard.SetText(ListBox.SelectedItem.ToString());
             }
         }
+
+        private void InputTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
