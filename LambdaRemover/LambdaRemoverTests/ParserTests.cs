@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Antlr4.Runtime;
 using LambdaRemover;
 using Microsoft.VisualStudio.TestTools.UnitTesting;

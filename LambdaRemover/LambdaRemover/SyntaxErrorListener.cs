@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using Antlr4.Runtime;
-using Antlr4.Runtime.Misc;
 using LambdaRemover;
 
 public class SyntaxErrorListener : BaseErrorListener
