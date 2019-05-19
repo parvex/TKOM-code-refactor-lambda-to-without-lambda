@@ -19,7 +19,7 @@ namespace LambdaRemover
             var tree = parser.program();
             if (errorListener.SyntaxErrors.Any())
             {
-                logOutput.Add("Couldn't refactor tree one or more errors occurred");
+                logOutput.Add("Couldn't refactor, one or more syntax errors occurred");
                 foreach (var error in errorListener.SyntaxErrors)
                 {
                     logOutput.Add(error.AsString());
