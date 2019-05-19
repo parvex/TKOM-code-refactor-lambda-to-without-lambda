@@ -12,10 +12,10 @@ classDefinition : 'class' NAME '{'  (propertyDefinition | methodDefinition)* '}'
 propertyDefinition : ('public' | 'private')? 'static'? varDeclaration; 
 methodDefinition : ('public' | 'private')? 'static'? (type | 'void') NAME '(' parameterList? ')' '{' stmnt* returnStmnt? '}'; 
 
-stmnt : varDeclaration | assignStmnt | (methodCallStmnt ';') | methodDefinition | classInitialization | lambdaExpression;
+stmnt : varDeclaration | assignStmnt | (methodCallStmnt ';') | methodDefinition | classInitialization | lambdaExpression | ';';
 
 varDeclaration : type NAME ('=' expression)? ';';
-assignStmnt : reference '=' (mathExpression | methodCallStmnt) ';'; 
+assignStmnt : reference '=' (mathExpression | methodCallStmnt | lambdaExpression) ';'; 
 returnStmnt : 'return' expression ';';
 
 expression:  mathExpression | lambdaExpression | reference;

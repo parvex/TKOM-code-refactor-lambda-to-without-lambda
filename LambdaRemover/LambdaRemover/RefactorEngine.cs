@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Windows.Controls;
 using Antlr4.Runtime;
+using Antlr4.Runtime.Misc;
 
 namespace LambdaRemover
 {
@@ -16,8 +16,7 @@ namespace LambdaRemover
             CsharpSubsetParser parser = new CsharpSubsetParser(commonTokenStream);
             SyntaxErrorListener errorListener = new SyntaxErrorListener();
             parser.AddErrorListener(errorListener);
-            CsharpSubsetParser.ProgramContext programContext = parser.program();
-            //LambdaRemoveVisitor visitor = new LambdaRemoveVisitor();
+            var tree = parser.program();
             if (errorListener.SyntaxErrors.Any())
             {
                 logOutput.Add("Couldn't refactor tree one or more errors occurred");
@@ -25,8 +24,11 @@ namespace LambdaRemover
                 {
                     logOutput.Add(error.AsString());
                 }
-            }
 
+                return;
+            }
+            LambdaRemoveVisitor visitor = new LambdaRemoveVisitor(inputStream);
+            visitor.Visit(tree);
         }
 
     }
