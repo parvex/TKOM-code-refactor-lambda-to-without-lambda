@@ -21,7 +21,6 @@ namespace LambdaRemover
             _logOutput = logOutput;
         }
 
-
         public string RemoveLambdas(string codeString)
         {
             ParseCode(codeString);
