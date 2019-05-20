@@ -28,7 +28,9 @@ namespace LambdaRemover
             if (Tree == null)
                 return "Correct syntax errors";
 
-            return RefactorCode(codeString);
+            string returnCode = RefactorCode(codeString);
+            _logOutput.Add("Refactor completed!");
+            return returnCode;
         }
 
         private string RefactorCode(string codeString)
@@ -77,7 +79,8 @@ namespace LambdaRemover
         {
 
             string methodName = "refactoredLambda" + index;
-            string method = "\n    public static " + (data.ArgumentList == "" ? "void " : "int ") + methodName
+
+            string method = "\n    public static " + (data.IsTyped ? "int " : "void ") + methodName
                             + "(" + data.ArgumentList + ")" + "\n    {\n        " 
                             + data.LambdaBody.Replace("\n", "\n        ") + "\n    }\n";
 

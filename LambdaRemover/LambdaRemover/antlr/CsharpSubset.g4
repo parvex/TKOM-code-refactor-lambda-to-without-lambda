@@ -5,7 +5,7 @@ grammar CsharpSubset;
  */
 program : (usingStmnt* classDefinition* EOF); 
 
-usingStmnt : 'using' NAME ';';
+usingStmnt : 'using' reference ';';
 classInitialization : reference NAME '=' 'new' NAME '(' argList? ')' ';';
 classDefinition : 'class' NAME '{'  (propertyDefinition | methodDefinition)* '}';
   
@@ -24,12 +24,12 @@ mathExpression:	NUMBER | reference |'(' mathExpression ')' |<assoc=right> mathEx
 
 methodCallStmnt: reference '(' argList? ')';
 
-lambdaBody:  (stmnt | mathExpression)* returnStmnt?;
-lambdaExpression : '(' (argList | typedArgList)? ')' '=>' '{' lambdaBody '}';
- 
 parameterList : type reference (',' type reference)*;
-typedArgList: type reference (',' type reference)*;
 argList: parameter  (',' parameter)*;
+
+lambdaExpression :  lambdaArgs '=>' (('{' lambdaBody '}') | mathExpression);
+lambdaBody:  stmnt* returnStmnt?;
+lambdaArgs: (( '(' ( (NAME  (',' NAME)*) | (type NAME (',' type NAME)*))? ')' ) | (  NAME  ) | (  type NAME ));
 
 parameter: reference | NUMBER | methodCallStmnt;
 type: SIMPLETYPE | delegateType;

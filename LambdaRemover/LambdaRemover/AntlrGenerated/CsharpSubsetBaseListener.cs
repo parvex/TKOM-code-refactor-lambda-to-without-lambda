@@ -191,17 +191,29 @@ public partial class CsharpSubsetBaseListener : ICsharpSubsetListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitMethodCallStmnt([NotNull] CsharpSubsetParser.MethodCallStmntContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { }
+	public virtual void EnterParameterList([NotNull] CsharpSubsetParser.ParameterListContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { }
+	public virtual void ExitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterArgList([NotNull] CsharpSubsetParser.ArgListContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitArgList([NotNull] CsharpSubsetParser.ArgListContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaExpression"/>.
 	/// <para>The default implementation does nothing.</para>
@@ -215,41 +227,29 @@ public partial class CsharpSubsetBaseListener : ICsharpSubsetListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitLambdaExpression([NotNull] CsharpSubsetParser.LambdaExpressionContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterParameterList([NotNull] CsharpSubsetParser.ParameterListContext context) { }
+	public virtual void EnterLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context) { }
+	public virtual void ExitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { }
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.typedArgList"/>.
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaArgs"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void EnterTypedArgList([NotNull] CsharpSubsetParser.TypedArgListContext context) { }
+	public virtual void EnterLambdaArgs([NotNull] CsharpSubsetParser.LambdaArgsContext context) { }
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.typedArgList"/>.
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaArgs"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	public virtual void ExitTypedArgList([NotNull] CsharpSubsetParser.TypedArgListContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterArgList([NotNull] CsharpSubsetParser.ArgListContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitArgList([NotNull] CsharpSubsetParser.ArgListContext context) { }
+	public virtual void ExitLambdaArgs([NotNull] CsharpSubsetParser.LambdaArgsContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.parameter"/>.
 	/// <para>The default implementation does nothing.</para>

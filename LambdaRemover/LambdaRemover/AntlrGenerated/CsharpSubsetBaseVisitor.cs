@@ -164,7 +164,7 @@ public partial class CsharpSubsetBaseVisitor<Result> : AbstractParseTreeVisitor<
 	/// <return>The visitor result.</return>
 	public virtual Result VisitMethodCallStmnt([NotNull] CsharpSubsetParser.MethodCallStmntContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -172,7 +172,17 @@ public partial class CsharpSubsetBaseVisitor<Result> : AbstractParseTreeVisitor<
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { return VisitChildren(context); }
+	public virtual Result VisitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context) { return VisitChildren(context); }
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
+	/// <para>
+	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
+	/// on <paramref name="context"/>.
+	/// </para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	public virtual Result VisitArgList([NotNull] CsharpSubsetParser.ArgListContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaExpression"/>.
 	/// <para>
@@ -184,7 +194,7 @@ public partial class CsharpSubsetBaseVisitor<Result> : AbstractParseTreeVisitor<
 	/// <return>The visitor result.</return>
 	public virtual Result VisitLambdaExpression([NotNull] CsharpSubsetParser.LambdaExpressionContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -192,9 +202,9 @@ public partial class CsharpSubsetBaseVisitor<Result> : AbstractParseTreeVisitor<
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context) { return VisitChildren(context); }
+	public virtual Result VisitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context) { return VisitChildren(context); }
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.typedArgList"/>.
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaArgs"/>.
 	/// <para>
 	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
 	/// on <paramref name="context"/>.
@@ -202,17 +212,7 @@ public partial class CsharpSubsetBaseVisitor<Result> : AbstractParseTreeVisitor<
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	public virtual Result VisitTypedArgList([NotNull] CsharpSubsetParser.TypedArgListContext context) { return VisitChildren(context); }
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
-	/// <para>
-	/// The default implementation returns the result of calling <see cref="AbstractParseTreeVisitor{Result}.VisitChildren(IRuleNode)"/>
-	/// on <paramref name="context"/>.
-	/// </para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	public virtual Result VisitArgList([NotNull] CsharpSubsetParser.ArgListContext context) { return VisitChildren(context); }
+	public virtual Result VisitLambdaArgs([NotNull] CsharpSubsetParser.LambdaArgsContext context) { return VisitChildren(context); }
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.parameter"/>.
 	/// <para>

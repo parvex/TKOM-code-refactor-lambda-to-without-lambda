@@ -110,11 +110,17 @@ public interface ICsharpSubsetVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitMethodCallStmnt([NotNull] CsharpSubsetParser.MethodCallStmntContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
+	Result VisitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context);
+	/// <summary>
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitArgList([NotNull] CsharpSubsetParser.ArgListContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaExpression"/>.
 	/// </summary>
@@ -122,23 +128,17 @@ public interface ICsharpSubsetVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitLambdaExpression([NotNull] CsharpSubsetParser.LambdaExpressionContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context);
+	Result VisitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
 	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.typedArgList"/>.
+	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.lambdaArgs"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
-	Result VisitTypedArgList([NotNull] CsharpSubsetParser.TypedArgListContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitArgList([NotNull] CsharpSubsetParser.ArgListContext context);
+	Result VisitLambdaArgs([NotNull] CsharpSubsetParser.LambdaArgsContext context);
 	/// <summary>
 	/// Visit a parse tree produced by <see cref="CsharpSubsetParser.parameter"/>.
 	/// </summary>

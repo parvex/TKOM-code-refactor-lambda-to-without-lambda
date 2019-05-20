@@ -161,15 +161,25 @@ public interface ICsharpSubsetListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitMethodCallStmnt([NotNull] CsharpSubsetParser.MethodCallStmntContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
+	void EnterParameterList([NotNull] CsharpSubsetParser.ParameterListContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
+	void ExitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterArgList([NotNull] CsharpSubsetParser.ArgListContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitArgList([NotNull] CsharpSubsetParser.ArgListContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaExpression"/>.
 	/// </summary>
@@ -181,35 +191,25 @@ public interface ICsharpSubsetListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitLambdaExpression([NotNull] CsharpSubsetParser.LambdaExpressionContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterParameterList([NotNull] CsharpSubsetParser.ParameterListContext context);
+	void EnterLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.parameterList"/>.
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaBody"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitParameterList([NotNull] CsharpSubsetParser.ParameterListContext context);
+	void ExitLambdaBody([NotNull] CsharpSubsetParser.LambdaBodyContext context);
 	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.typedArgList"/>.
+	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.lambdaArgs"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void EnterTypedArgList([NotNull] CsharpSubsetParser.TypedArgListContext context);
+	void EnterLambdaArgs([NotNull] CsharpSubsetParser.LambdaArgsContext context);
 	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.typedArgList"/>.
+	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.lambdaArgs"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
-	void ExitTypedArgList([NotNull] CsharpSubsetParser.TypedArgListContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterArgList([NotNull] CsharpSubsetParser.ArgListContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="CsharpSubsetParser.argList"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitArgList([NotNull] CsharpSubsetParser.ArgListContext context);
+	void ExitLambdaArgs([NotNull] CsharpSubsetParser.LambdaArgsContext context);
 	/// <summary>
 	/// Enter a parse tree produced by <see cref="CsharpSubsetParser.parameter"/>.
 	/// </summary>

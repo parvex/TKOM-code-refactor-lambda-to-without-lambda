@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
@@ -24,31 +25,48 @@ namespace LambdaRemover
             return base.Visit(tree);
         }
 
-        public override object VisitLambdaBody(CsharpSubsetParser.LambdaBodyContext context)
+        public override object VisitLambdaExpression(CsharpSubsetParser.LambdaExpressionContext context)
         {
-            string body = GetContextSource(context);
+            string body = null;
+            bool isTyped = false;
+            if (context.lambdaBody() != null)
+            {
+                body = GetContextSource(context.lambdaBody());
+                isTyped = context.lambdaBody().returnStmnt() != null;
+            }
+            else
+            {
+                body = "\nreturn " + GetContextSource(context.mathExpression()) + ";\n";
+                isTyped = true;
+            }
 
-            CsharpSubsetParser.LambdaExpressionContext lambdaExpressionContext = context.Parent as CsharpSubsetParser.LambdaExpressionContext;
-            if (lambdaExpressionContext == null)
-                throw new NullReferenceException();
 
-            var lambdaExpressionInterval = new Interval(lambdaExpressionContext.Start.StartIndex, lambdaExpressionContext.Stop.StopIndex);
-            var argList = GetArgList(lambdaExpressionContext);
+            var lambdaExpressionInterval = new Interval(context.Start.StartIndex, context.Stop.StopIndex);
+            var argList = GetArgList(context);
             var classDefinitionContext = FindClassDefinitionContext(context);
             var clasStartIndex = classDefinitionContext.Start.StartIndex;
-            RefactorData data = new RefactorData(argList, body, lambdaExpressionInterval, clasStartIndex);
+            RefactorData data = new RefactorData(argList, body, lambdaExpressionInterval, clasStartIndex, isTyped);
 
             RefactorDataList.Add(data);
 
-            return base.VisitLambdaBody(context);
+
+            return base.VisitLambdaExpression(context);
         }
 
-        private string GetArgList(CsharpSubsetParser.LambdaExpressionContext lambdaExpressionContext)
+        private string GetArgList(CsharpSubsetParser.LambdaExpressionContext context)
         {
             string argList;
-            if (lambdaExpressionContext.argList() != null)
+            
+            StringBuilder args = new StringBuilder(GetContextSource(context.lambdaArgs()));
+            if (args[0] == '(')
             {
-                var arguments = GetContextSource(lambdaExpressionContext.argList()).Split(',');
+                 args.Replace("(", "");
+                 args.Replace(")", "");
+            }
+            Console.WriteLine(context.lambdaArgs());
+            if (context.lambdaArgs().type().Length == 0 && context.lambdaArgs().NAME().Length != 0)
+            {
+                var arguments = args.ToString().Split(',');
 
                 for (int i = 0; i < arguments.Length; i++)
                 {
@@ -57,13 +75,9 @@ namespace LambdaRemover
 
                 argList = string.Join(", ", arguments);
             }
-            else if (lambdaExpressionContext.typedArgList() != null)
-            {
-                argList = GetContextSource(lambdaExpressionContext.typedArgList());
-            }
             else
             {
-                argList = "";
+                argList = args.ToString();
             }
 
             return argList;
