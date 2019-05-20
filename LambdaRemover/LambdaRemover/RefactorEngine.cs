@@ -37,18 +37,18 @@ namespace LambdaRemover
             visitor.Visit(Tree);
 
             int i = 0;
-            string refactoredString = codeString;
+            StringBuilder refactorBuilder = new StringBuilder(codeString);
             while (visitor.RefactorDataList.Any())
             {
-                refactoredString = RefactorSingleLambda(codeString, visitor.RefactorDataList.First(), i);
+                RefactorSingleLambda(refactorBuilder, visitor.RefactorDataList.First(), i);
 
-                ParseCode(refactoredString);
+                ParseCode(refactorBuilder.ToString());
                 visitor.InputStream = InputStream;
                 visitor.Visit(Tree);
                 ++i;
             }
 
-            return refactoredString;
+            return refactorBuilder.ToString();
         }
 
         private void ParseCode(string codeString)
@@ -73,22 +73,20 @@ namespace LambdaRemover
         }
 
 
-        private string RefactorSingleLambda(string codeString, RefactorData data, int index)
+        private string RefactorSingleLambda(StringBuilder refactorBuilder, RefactorData data, int index)
         {
-            StringBuilder refactorBuilder = new StringBuilder(codeString);
 
             string methodName = "refactoredLambda" + index;
-            string method = "public static " + (data.ArgumentList == "" ? " void " : "int") + methodName
-                            + "(" + data.ArgumentList + ")" + "\n{'\n" + data.LambdaBody + "\n}";
+            string method = "\n    public static " + (data.ArgumentList == "" ? "void " : "int ") + methodName
+                            + "(" + data.ArgumentList + ")" + "\n    {\n        " 
+                            + data.LambdaBody.Replace("\n", "\n        ") + "\n    }\n";
 
-            Console.WriteLine(refactorBuilder.ToString());
-            refactorBuilder.Remove(data.LambdaInterval.a, data.LambdaInterval.b);
-            Console.WriteLine(refactorBuilder.ToString()); 
-            refactorBuilder.Insert(data.LambdaInterval.a, methodName + ";\n");
-            Console.WriteLine(refactorBuilder.ToString());
+            refactorBuilder.Remove(data.LambdaInterval.a, data.LambdaInterval.b - data.LambdaInterval.a + 1);
+            refactorBuilder.Insert(data.LambdaInterval.a, methodName);
 
-            // it will work wrong
-            refactorBuilder.Insert(data.MethodDefIndex, method);
+            var methodPrintPos = refactorBuilder.ToString().IndexOf('{', data.ClassStartIndex) + 1;
+            refactorBuilder.Insert(methodPrintPos, method);
+
             Console.WriteLine(refactorBuilder.ToString());
 
             return refactorBuilder.ToString();

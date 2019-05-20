@@ -34,13 +34,9 @@ namespace LambdaRemover
 
             var lambdaExpressionInterval = new Interval(lambdaExpressionContext.Start.StartIndex, lambdaExpressionContext.Stop.StopIndex);
             var argList = GetArgList(lambdaExpressionContext);
-
-            var methodDefContext = FindMethodDefinitionContext(context);
-
-            var parenthesis = methodDefContext.children.Where(x => x.GetText() == "{");
-            int methodDefIndex = parenthesis.First().SourceInterval.b;
-            RefactorData data = new RefactorData(argList, body, lambdaExpressionInterval, methodDefIndex);
-
+            var classDefinitionContext = FindClassDefinitionContext(context);
+            var clasStartIndex = classDefinitionContext.Start.StartIndex;
+            RefactorData data = new RefactorData(argList, body, lambdaExpressionInterval, clasStartIndex);
 
             RefactorDataList.Add(data);
 
@@ -78,15 +74,15 @@ namespace LambdaRemover
             return InputStream.GetText(new Interval(context.Start.StartIndex, context.Stop.StopIndex));
         }
 
-        private CsharpSubsetParser.MethodDefinitionContext FindMethodDefinitionContext(RuleContext context)
+        private CsharpSubsetParser.ClassDefinitionContext FindClassDefinitionContext(RuleContext context)
         {
-            while (!(context is CsharpSubsetParser.MethodDefinitionContext) && !(context is CsharpSubsetParser.ProgramContext))
+            while (!(context is CsharpSubsetParser.ClassDefinitionContext) && !(context is CsharpSubsetParser.ProgramContext))
             {
                 context = context.Parent;
             }
 
-            if (context is CsharpSubsetParser.MethodDefinitionContext definitionContext)
-                return definitionContext;
+            if (context is CsharpSubsetParser.ClassDefinitionContext classDefinitionContext)
+                return classDefinitionContext;
             else
                 throw new IndexOutOfRangeException();
         }

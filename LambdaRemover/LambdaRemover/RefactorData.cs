@@ -4,12 +4,12 @@ namespace LambdaRemover
 {
     public class RefactorData
     {
-        public RefactorData(string argumentList, string lambdaBody, Interval lambdaInterval, int methodDefIndex)
+        public RefactorData(string argumentList, string lambdaBody, Interval lambdaInterval, int classStartIndex)
         {
             ArgumentList = argumentList;
             LambdaBody = lambdaBody;
             LambdaInterval = lambdaInterval;
-            MethodDefIndex = methodDefIndex;
+            ClassStartIndex = classStartIndex;
         }
 
         public string ArgumentList { get; set; }
@@ -18,6 +18,6 @@ namespace LambdaRemover
 
         public Interval LambdaInterval { get; set; }
 
-        public int MethodDefIndex { get; set; }
+        public int ClassStartIndex { get; set; }
     }
 }
