@@ -20,7 +20,9 @@ namespace LambdaRemover
 
         private void RefactorButton_Click(object sender, RoutedEventArgs e)
         {
-            OutputTextBox.Text = RefactorEngine.RemoveLambdas(InputTextBox.Text, LogOutput);
+            var engine = new RefactorEngine(LogOutput);
+            
+            OutputTextBox.Text = engine.RemoveLambdas(InputTextBox.Text);
         }
 
         private void ListBox_SelectionChanged(SelectionChangedEventArgs e)
