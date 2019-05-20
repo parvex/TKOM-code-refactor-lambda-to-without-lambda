@@ -78,17 +78,19 @@ namespace LambdaRemover
             StringBuilder refactorBuilder = new StringBuilder(codeString);
 
             string methodName = "refactoredLambda" + index;
-            string method = "public static" + (data.ArgumentList == "" ? "void" : "int") + methodName
-                            + "(" + data.ArgumentList + ")" + "\n{" + data.LambdaBody + "\n}";
+            string method = "public static " + (data.ArgumentList == "" ? " void " : "int") + methodName
+                            + "(" + data.ArgumentList + ")" + "\n{'\n" + data.LambdaBody + "\n}";
 
-
+            Console.WriteLine(refactorBuilder.ToString());
             refactorBuilder.Remove(data.LambdaInterval.a, data.LambdaInterval.b);
-            refactorBuilder.Insert(data.LambdaInterval.a, methodName);
+            Console.WriteLine(refactorBuilder.ToString()); 
+            refactorBuilder.Insert(data.LambdaInterval.a, methodName + ";\n");
+            Console.WriteLine(refactorBuilder.ToString());
 
             // it will work wrong
             refactorBuilder.Insert(data.MethodDefIndex, method);
-
             Console.WriteLine(refactorBuilder.ToString());
+
             return refactorBuilder.ToString();
         }
     }

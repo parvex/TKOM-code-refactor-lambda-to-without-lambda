@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Antlr4.Runtime;
 using Antlr4.Runtime.Misc;
 using Antlr4.Runtime.Tree;
@@ -35,7 +36,9 @@ namespace LambdaRemover
             var argList = GetArgList(lambdaExpressionContext);
 
             var methodDefContext = FindMethodDefinitionContext(context);
-            int methodDefIndex = methodDefContext.Start.StartIndex;
+
+            var parenthesis = methodDefContext.children.Where(x => x.GetText() == "{");
+            int methodDefIndex = parenthesis.First().SourceInterval.b;
             RefactorData data = new RefactorData(argList, body, lambdaExpressionInterval, methodDefIndex);
 
 
