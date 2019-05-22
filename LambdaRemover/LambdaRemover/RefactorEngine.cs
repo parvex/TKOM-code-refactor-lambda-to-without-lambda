@@ -9,12 +9,15 @@ namespace LambdaRemover
 {
     public class RefactorEngine
     {
+        public bool SyntaxErrorsFound { get; set; }
+
         private ObservableCollection<string> _logOutput;
         CsharpSubsetLexer Lexer;
         CommonTokenStream CommonTokenStream;
         CsharpSubsetParser Parser;
         CsharpSubsetParser.ProgramContext Tree;
         AntlrInputStream InputStream;
+        
 
         public RefactorEngine(ObservableCollection<string> logOutput)
         {
@@ -23,6 +26,7 @@ namespace LambdaRemover
 
         public string RemoveLambdas(string codeString)
         {
+            SyntaxErrorsFound = false;
             ParseCode(codeString);
             if (Tree == null)
                 return "Correct syntax errors";
@@ -69,6 +73,7 @@ namespace LambdaRemover
                     _logOutput.Add(error.AsString());
                 }
 
+                SyntaxErrorsFound = true;
                 Tree = null;
             }
         }
